@@ -2,19 +2,87 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -24,8 +92,17 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 
@@ -33,16 +110,20 @@ body {
   line-height: 1;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
   content: "";
   content: none;
 }
@@ -81,16 +162,34 @@ header {
   background: #f1f3ff;
   padding-top: 1rem;
 }
+header .nav {
+  position: fixed;
+  background: #f1f3ff;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+@media (min-width: 992px) {
+  header .nav {
+    position: static;
+  }
+}
 header .nav__wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0;
+  padding: 1.25rem 0;
 }
-header .nav__brand {
+@media (min-width: 992px) {
+  header .nav__wrapper {
+    padding: 1rem 0;
+  }
+}
+header .nav__brand a {
   color: #000000;
   font-size: 1.75rem;
   font-weight: 700;
+  text-decoration: none;
 }
 header .nav__menu {
   display: none;
@@ -103,7 +202,7 @@ header .nav__menu.active {
   width: 50%;
   height: 100vh;
   background: #ffffff;
-  padding: 5rem 2rem;
+  padding: 1.625rem 2rem;
   flex-direction: column;
   gap: 2.5rem;
   z-index: 100;
@@ -132,6 +231,15 @@ header .nav__list {
   header .nav__list {
     flex-direction: row;
     gap: 2rem;
+  }
+}
+header .nav__item:first-child {
+  display: flex;
+  font-weight: 600;
+}
+@media (min-width: 992px) {
+  header .nav__item:first-child {
+    display: none;
   }
 }
 header .nav__link {
@@ -390,6 +498,7 @@ header .nav__btn {
 }
 #testimoni .container .testimoni__wrapper-list {
   margin-top: 2.5rem;
+  height: 100%;
 }
 #testimoni .container .testimoni__wrapper-list-card {
   background: #f1f3ff;
@@ -407,9 +516,10 @@ header .nav__btn {
   }
 }
 #testimoni .container .testimoni__wrapper-list-card-image {
+  flex: 1;
   display: flex;
   align-items: center;
-  max-width: 5rem;
+  max-width: 6rem;
   height: auto;
   align-self: center;
 }
@@ -417,6 +527,7 @@ header .nav__btn {
   max-width: 100%;
 }
 #testimoni .container .testimoni__wrapper-list-card-testi {
+  flex: 1;
   text-align: left;
   margin-top: -1rem;
 }
@@ -448,6 +559,46 @@ header .nav__btn {
   line-height: 1.625rem;
   margin: 0;
   font-size: 0.825rem;
+}
+#testimoni .container .testimoni__wrapper-list .swiper-slide div {
+  position: relative;
+  overflow: hidden;
+}
+#testimoni .container .testimoni__wrapper-list .swiper-custom-nav {
+  z-index: 10;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1.5rem;
+  width: 100%;
+}
+#testimoni .container .testimoni__wrapper-list .swiper-custom-nav-btn {
+  background: #ffffff;
+  border-radius: 50%;
+  width: 2rem;
+  height: auto;
+  padding: 0.25rem;
+  border: 1px solid #d0d0d0;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#testimoni .container .testimoni__wrapper-list .swiper-custom-nav-btn svg {
+  stroke: #222222;
+}
+#testimoni .container .testimoni__wrapper-list .swiper-custom-nav-btn:hover {
+  background: #5cb85f;
+  border: 1px solid #ffffff;
+}
+#testimoni
+  .container
+  .testimoni__wrapper-list
+  .swiper-custom-nav-btn:hover
+  svg {
+  stroke: #ffffff;
 }
 
 #started {
@@ -613,9 +764,9 @@ header .nav__btn {
   width: fit-content;
   line-height: 0;
 }
-#footer .container .footer__wrapper-item h1 {
+#footer .container .footer__wrapper-item h1 a {
   font-size: 2rem;
   color: #000000;
   font-weight: 700;
   line-height: 3rem;
-}/*# sourceMappingURL=main.css.map */
+} /*# sourceMappingURL=main.css.map */
