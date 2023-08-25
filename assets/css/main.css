@@ -202,7 +202,7 @@ header .nav__menu.active {
   width: 50%;
   height: 100vh;
   background: #ffffff;
-  padding: 1.625rem 2rem;
+  padding: 1.7rem 2rem;
   flex-direction: column;
   gap: 2.5rem;
   z-index: 100;
